@@ -1,0 +1,21 @@
+<h3>Quản lý khách hàng</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Email</th>
+      <th>Vai trò</th>
+      <th>Ngày tạo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{ u.id }}</td>
+      <td>{{ u.name }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>{{ u.created_at | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>

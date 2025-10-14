@@ -1,0 +1,21 @@
+<h3>Quản lý đơn hàng</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Người dùng</th>
+      <th>Tổng tiền</th>
+      <th>Trạng thái</th>
+      <th>Ngày đặt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of orders">
+      <td>{{ o.id }}</td>
+      <td>{{ o.user_id }}</td>
+      <td>{{ o.total_amount | currency:'VND' }}</td>
+      <td>{{ o.status }}</td>
+      <td>{{ o.order_date | date:'short' }}</td>
+    </tr>
+  </tbody>
+</table>

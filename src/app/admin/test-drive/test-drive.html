@@ -1,0 +1,44 @@
+<div class="container my-4">
+  <h2>Danh sách đăng ký lái thử</h2>
+
+  <div *ngIf="loading">Đang tải dữ liệu...</div>
+  <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+
+  <table *ngIf="!loading && registrations.length > 0" class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Người đăng ký</th>
+        <th>Điện thoại</th>
+        <th>Địa điểm</th>
+        <th>Ngày dự kiến</th>
+        <th>Trạng thái</th>
+        <th>Admin duyệt</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reg of registrations">
+        <td>{{ reg.id }}</td>
+        <td>{{ reg.product_name }}</td>
+        <td>{{ reg.fullname }}</td>
+        <td>{{ reg.phone }}</td>
+        <td>{{ reg.city }} / {{ reg.dealer }}</td>
+        <td>{{ reg.date_schedule || '-' }}</td>
+        <td [ngClass]="getStatusClass(reg.status)">{{ reg.status }}</td>
+        <td>{{ reg.approved_by || '-' }}</td>
+        <td>
+          <button *ngIf="reg.status === 'pending'" class="btn btn-success btn-sm me-1"
+                  (click)="updateStatus(reg.id, 'approved')">Duyệt</button>
+          <button *ngIf="reg.status === 'pending'" class="btn btn-danger btn-sm"
+                  (click)="updateStatus(reg.id, 'rejected')">Từ chối</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && registrations.length === 0" class="text-muted mt-3">
+    Chưa có đăng ký lái thử nào.
+  </div>
+</div>

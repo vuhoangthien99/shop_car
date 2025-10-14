@@ -1,0 +1,43 @@
+/* Container bao ngoài, chiếm toàn bộ chiều cao màn hình */
+.login-container {
+    height: 100vh;
+    background-color: #f8f9fa; /* Màu nền xám nhạt */
+    padding: 20px;
+}
+
+/* Thẻ form chính */
+.login-card {
+    max-width: 450px; /* Chiều rộng tối đa */
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden; /* Che các góc thẻ */
+}
+
+/* Tiêu đề */
+.login-card .card-title {
+    color: #dc3545; /* Màu đỏ */
+    font-size: 1.8rem;
+}
+
+/* Nút Đăng Nhập */
+.login-card .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.login-card .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Tùy chỉnh cho màn hình nhỏ */
+@media (max-width: 576px) {
+    .login-card {
+        margin: 20px;
+    }
+}

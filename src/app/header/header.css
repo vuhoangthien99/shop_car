@@ -1,0 +1,156 @@
+/* Typography */
+body,
+ul,
+li,
+p,
+a,
+label,
+input,
+div {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+body{
+  padding-top: 150px;
+}
+.modal {
+        height: 200px;
+      }
+.h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px !important;
+  font-weight: 200 !important;
+}
+.h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px !important;
+  font-weight: 300;
+}
+.h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px !important;
+}
+/* Nav */
+#templatemo_nav_top {
+  min-height: 40px;
+}
+#templatemo_nav_top * {
+  font-size: 0.9em !important;
+}
+#templatemo_main_nav a {
+  color: #212934;
+}
+#templatemo_main_nav a:hover {
+  color: #69bb7e;
+}
+#templatemo_main_nav .navbar .nav-icon {
+  margin-right: 20px;
+}
+.logo {
+  font-weight: 500 !important;
+}
+.text-success {
+  color: #59ab6e !important;
+}
+.navbar .nav-link.active {
+  color: #69bb7e !important; /* vàng */
+  font-weight: bold;
+  border-bottom: 2px solid #69bb7e;
+}
+.carousel-inner {
+  height: 440px; /* điều chỉnh theo ý bạn */
+}
+/* Mỗi slide chiếm đầy khung */
+.carousel-item {
+  height: 100%;
+}
+/* Ảnh chiếm trọn khung và giữ tỉ lệ - dùng cover để các ảnh đồng đều */
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     
+}
+.carousel-controls {
+  bottom: 20px;
+}
+button.btn:hover {
+  background: transparent;
+}
+#btn-back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.user-menu {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.user-name {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: 900 !important;
+}
+
+.user-name i {
+  margin-left: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hiển thị dropdown khi hover vào .user-menu */
+.user-menu:hover .dropdown-menu {
+  display: block;
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+  .carousel-item img {
+    max-height: none;
+    /* object-fit: contain; */
+  }
+  #btn-back-to-top {
+    width: 40px;
+    height: 40px;
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 50%;
+    bottom: 20px;
+  }
+}
+@media (min-width: 768px) {
+  #templatemo_main_nav .navbar-nav {
+    max-width: 450px;
+  }
+}

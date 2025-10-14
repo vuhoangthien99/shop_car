@@ -1,0 +1,264 @@
+<!-- section -->
+<section class="container-fluid">
+  <div class="container my-4">
+    <div class="row g-5 pb-5">
+      <!-- Nội dung chính bên trái -->
+      <div class="col-lg-8">
+        <h1 class="mb-4 text-center fst-italic text-uppercase fw-bold">Liên hệ với chúng tôi</h1>
+
+        <!-- Hàng các nút liên hệ -->
+        <div class="row g-3 mb-4">
+          <!-- Hotline -->
+          <div class="col-12 col-md-6">
+            <button
+              class="btn btn-danger text-white d-flex align-items-center w-100 h-100 p-3"
+              data-bs-toggle="modal"
+              data-bs-target="#hotlineModal"
+            >
+              <i class="fa fa-phone me-2"></i>
+              <span>Hotline miễn phí 1800 8001</span>
+            </button>
+          </div>
+
+          <!-- Email -->
+          <div class="col-12 col-md-6">
+            <button
+              class="btn btn-danger text-white d-flex align-items-center w-100 h-100 p-3"
+              data-bs-toggle="modal"
+              data-bs-target="#emailModal"
+            >
+              <i class="fa fa-envelope me-2"></i>
+              <span>Email: cr@honda.com.vn</span>
+            </button>
+          </div>
+
+          <!-- Chatbot -->
+          <div class="col-12 col-md-6">
+            <button
+              class="btn btn-danger text-white d-flex align-items-center w-100 h-100 p-3"
+              data-bs-toggle="modal"
+              data-bs-target="#chatbotModal"
+            >
+              <i class="fa fa-robot me-2"></i>
+              <span>Liên hệ qua Chatbot trên My Honda+</span>
+            </button>
+          </div>
+
+          <!-- Website -->
+          <div class="col-12 col-md-6">
+            <button
+              class="btn btn-danger text-white d-flex align-items-center w-100 h-100 p-3"
+              data-bs-toggle="modal"
+              data-bs-target="#websiteModal"
+            >
+              <i class="fa fa-paper-plane me-2"></i>
+              <span>Liên hệ qua website</span>
+            </button>
+          </div>
+        </div>
+        <!-- ===================== MODALS ===================== -->
+        <!-- Hotline Modal -->
+        <div
+          class="modal fade"
+          id="hotlineModal"
+          tabindex="-1"
+          aria-labelledby="hotlineModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="hotlineModalLabel">Hotline miễn phí</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">📞 Gọi ngay: <strong>1800 8001</strong> (Miễn phí cước).</div>
+              <div class="modal-footer">
+                <a href="tel:18008001" class="btn btn-success">Gọi ngay</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Đóng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Modal -->
+        <div
+          class="modal fade"
+          id="emailModal"
+          tabindex="-1"
+          aria-labelledby="emailModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="emailModalLabel">Liên hệ qua Email</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">
+                📧 Gửi email: <a href="mailto:cr@honda.com.vn">cr@honda.com.vn</a>
+              </div>
+              <div class="modal-footer">
+                <a href="mailto:cr@honda.com.vn" class="btn btn-primary">Gửi Email</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Đóng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chatbot Modal -->
+        <div
+          class="modal fade"
+          id="chatbotModal"
+          tabindex="-1"
+          aria-labelledby="chatbotModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="chatbotModalLabel">Chatbot My Honda+</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">
+                🤖 Bạn có thể trò chuyện trực tiếp với Chatbot trên ứng dụng <b>My Honda+</b>.
+              </div>
+              <div class="modal-footer">
+                <a href="#" class="btn btn-info">Mở ứng dụng</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Đóng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Website Modal -->
+        <div
+          class="modal fade"
+          id="websiteModal"
+          tabindex="-1"
+          aria-labelledby="websiteModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="websiteModalLabel">Liên hệ qua Website</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">
+                🌐 Vui lòng truy cập trang web chính thức để liên hệ:
+                <a href="https://www.honda.com.vn" target="_blank">www.honda.com.vn</a>
+              </div>
+              <div class="modal-footer">
+                <a href="https://www.honda.com.vn" target="_blank" class="btn btn-danger"
+                  >Đi tới Website</a
+                >
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Đóng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ===================== END MODALS ===================== -->
+
+        <!-- Hàng các card địa chỉ -->
+        <div class="row g-4 mt-3">
+          <!-- Box -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-uppercase">Trụ sở chính</h5>
+                <p><i class="bi bi-geo-alt"></i> Phường Phúc Yên, Tỉnh Phú Thọ</p>
+                <p><i class="bi bi-telephone"></i> (84) 211-3868888</p>
+                <p><i class="bi bi-printer"></i> (84) 211-3868910</p>
+                <a href="#" class="text-danger fw-bold text-decoration-none">
+                  Chỉ đường <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-uppercase">Chi nhánh tại Hà Nam</h5>
+                <p><i class="bi bi-geo-alt"></i> KCN Đồng Văn II, Phường Duy Hà, Tỉnh Ninh Bình</p>
+                <p><i class="bi bi-telephone"></i> (84) 226-39666666</p>
+                <p><i class="bi bi-printer"></i> (84) 226-3572666</p>
+                <a href="#" class="text-danger fw-bold text-decoration-none">
+                  Chỉ đường <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-uppercase">Chi nhánh tại TP Hồ Chí Minh</h5>
+                <p><i class="bi bi-geo-alt"></i> 54-56 Nguyễn Trãi, Phường Bến Thành, TP HCM</p>
+                <p><i class="bi bi-telephone"></i> (84) 28-39256949</p>
+                <p><i class="bi bi-printer"></i> (84) 28-39256948</p>
+                <a href="#" class="text-danger fw-bold text-decoration-none">
+                  Chỉ đường <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ảnh bên phải -->
+      <div class="col-lg-4 d-none d-lg-block">
+        <img
+          src="https://www.honda.com.vn/images/contact-us/img_contact_info.jpg"
+          class="img-fluid rounded shadow-sm"
+          alt="About Image"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- close section -->
+<section class="container-md p-5 my-5 w-75">
+  <h2 class="text-center mb-4">Bản đồ</h2>
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4728597588337!2d106.63192447480496!3d10.775049589373658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ea144839ef1%3A0x798819bdcd0522b0!2sInformation%20Technology%20College%20HoChiMinh%20City!5e0!3m2!1sen!2s!4v1759159525613!5m2!1sen!2s"
+      width="100"
+      height="250"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</section>

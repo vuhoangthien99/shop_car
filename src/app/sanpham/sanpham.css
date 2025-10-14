@@ -1,0 +1,55 @@
+.toanbotrangweb{
+  background-color: #F5F5F5;
+  
+}
+.container{
+  background-color: #F5F5F5;
+  
+}
+.sanpham {
+  /* border: 1px solid #eee;
+  border-radius: 10px; */
+  padding: 20px;
+  padding-top: 100px; /* chừa chỗ cho xe */
+  background: #fff;
+  position: relative;
+  overflow: visible; /* cho xe trồi ra ngoài */
+}
+.sanpham:hover{
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.img-wrap {
+  position: absolute;
+  top: -60px;   /* nâng xe lên khỏi box */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;   /* chỉnh kích thước xe */
+}
+
+.img-wrap img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.4s ease;
+}
+
+.img-wrap img.hover {
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+}
+
+.img-wrap:hover img.main {
+  opacity: 0;
+}
+
+.img-wrap:hover img.hover {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  /* .sanpham {
+    margin-top: 50px;
+  } */
+   #first{
+    margin-top: 48px;
+   }
+}

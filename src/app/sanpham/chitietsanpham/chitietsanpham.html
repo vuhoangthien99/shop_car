@@ -1,0 +1,470 @@
+<section class="container-md" *ngIf="product">
+  <div class="row my-4 container-fluid">
+    <!-- Ảnh sản phẩm -->
+    <div class="col-lg-5 mt-5">
+      <div class="card mb-3">
+        <img
+          class="card-img img-fluid"
+          [src]="selectedImage"
+          alt="Ảnh chính sản phẩm"
+          id="product-detail"
+        />
+      </div>
+
+      <!-- 5 thumbnail -->
+      <div class="row d-flex justify-content-center">
+        <div class="col-2" *ngFor="let thumb of thumbnails">
+          <img
+            [src]="thumb"
+            class="thumb img-thumbnail"
+            [class.active-thumb]="thumb === selectedImage"
+            (click)="changeMainImage(thumb)"
+            alt="Thumbnail"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Thông tin chi tiết -->
+    <div class="col-lg-7 mt-5">
+      <div class="container text-center">
+        <!-- Tiêu đề -->
+        <h2 class="fw-bold mb-2">{{ product.name }}</h2>
+        <p class="mb-4">{{ product.mo_ta_chi_tiet }}</p>
+
+        <!-- Nút -->
+        <div class="d-flex justify-content-evenly p-3 p-lg-0">
+          <a href="#" class="link-red" data-bs-toggle="modal" data-bs-target="#modalThongSo">
+            Xem thông số
+          </a>
+          <a href="#" class="link-red" data-bs-toggle="modal" data-bs-target="#modalSoSanh">
+            Đăng ký Lái thử
+          </a>
+        </div>
+
+        <!-- Modal 1: Thông số -->
+        <div
+          class="modal fade"
+          id="modalThongSo"
+          tabindex="-1"
+          aria-labelledby="modalThongSoLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalThongSoLabel">Thông số kỹ thuật</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- Nội dung modal -->
+                <div class="container my-5">
+                  <h2 class="mb-4">Thông số kỹ thuật</h2>
+
+                  <div class="table-responsive">
+                    <table class="table table-bordered align-middle text-center">
+                      <thead class="table-light">
+                        <tr>
+                          <!-- Giữ lại cột Danh mục và tăng chiều rộng tương đối -->
+                          <th style="width: 50%">Danh mục</th>
+                          <!-- Chỉ giữ lại một cột cho phiên bản xe -->
+                          <th>e:HEV RS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Nhóm 1 -->
+                        <tr class="table-danger">
+                          <!-- Colspan chỉ còn 2 cột -->
+                          <th colspan="2" class="text-start">ĐỘNG CƠ / HỘP SỐ</th>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Kiểu động cơ</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.dong_co }} -->
+                          <td>{{ details?.dong_co }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Hộp số</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.hop_so }} -->
+                          <td>{{ details?.hop_so }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Dung tích xi lanh (cm³)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.dung_tich_xi_lanh }} -->
+                          <td>{{ details?.dung_tich_xi_lanh }}</td>
+                        </tr>
+
+                        <!-- Nhóm 2 -->
+                        <tr class="table-danger">
+                          <!-- Colspan chỉ còn 2 cột -->
+                          <th colspan="2" class="text-start">KÍCH THƯỚC / TRỌNG LƯỢNG</th>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Dài x Rộng x Cao (mm)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.dai_rong_cao }} -->
+                          <td>{{ details?.dai_rong_cao }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Chiều dài cơ sở (mm)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.chieu_dai_co_so }} -->
+                          <td>{{ details?.chieu_dai_co_so }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Khoảng sáng gầm xe (mm)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.khoang_sang_gam_xe }} -->
+                          <td>{{ details?.khoang_sang_gam_xe }}</td>
+                        </tr>
+
+                        <!-- Nhóm 3 -->
+                        <tr class="table-danger">
+                          <!-- Colspan chỉ còn 2 cột -->
+                          <th colspan="2" class="text-start">MỨC TIÊU THỤ NHIÊN LIỆU</th>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Chu trình tổ hợp (l/100km)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.tieu_thu_tong_hop }} -->
+                          <td>{{ details?.tieu_thu_tong_hop }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Chu trình đô thị (l/100km)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.tieu_thu_do_thi }} -->
+                          <td>{{ details?.tieu_thu_do_thi }}</td>
+                        </tr>
+                        <tr>
+                          <td class="text-start">Chu trình ngoài đô thị (l/100km)</td>
+                          <!-- Chỉ giữ lại giá trị {{ details.tieu_thu_ngoai_do_thi }} -->
+                          <td>{{ details?.tieu_thu_ngoai_do_thi }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <script>
+                  const select = document.getElementById('selectColumn');
+                  const allCells = document.querySelectorAll('[data-version-col]');
+
+                  function updateTable() {
+                    const value = select.value;
+                    // Ẩn/hiện cell trên mobile
+                    allCells.forEach((cell) => {
+                      if (window.innerWidth < 768) {
+                        cell.style.display =
+                          cell.getAttribute('data-version-col') === value ? '' : 'none';
+                      } else {
+                        cell.style.display = ''; // desktop: luôn hiện
+                      }
+                    });
+                  }
+
+                  select.addEventListener('change', updateTable);
+                  window.addEventListener('resize', updateTable);
+                  updateTable(); // chạy khi load
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal 2: Đăng ký lái thử -->
+        <!-- <div
+          class="modal fade"
+          id="modalSoSanh"
+          tabindex="-1"
+          aria-labelledby="modalSoSanhLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-danger" id="modalSoSanhLabel">Đăng ký Lái thử</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Đóng"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="container my-5">
+                  <div class="text-center mb-4">
+                    <h4 class="fw-bold">{{ product.name }}</h4>
+                    <img
+                      class="w-50 img-fluid rounded"
+                      [src]="product.image_url"
+                      [alt]="product.name"
+                    />
+                  </div>
+                  <form class="text-start" (submit)="submitForm($event)">
+                    <div class="mb-3">
+                      <label for="fullname" class="form-label">Họ và tên *</label>
+                      <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Số điện thoại *</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        class="form-control"
+                        pattern="[0-9]{10,11}"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="city" class="form-label">Tỉnh/Thành phố *</label>
+                      <select id="city" name="city" class="form-select" required>
+                        <option value="">Chọn</option>
+                        <option>Hà Nội</option>
+                        <option>TP. Hồ Chí Minh</option>
+                        <option>Đà Nẵng</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="dealer" class="form-label">Đại lý *</label>
+                      <select id="dealer" name="dealer" class="form-select" required>
+                        <option value="">Chọn</option>
+                        <option>Đại lý A</option>
+                        <option>Đại lý B</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="date" class="form-label">Ngày dự kiến</label>
+                      <input type="date" id="date" name="date" class="form-control" />
+                    </div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="license" name="license" />
+                      <label class="form-check-label" for="license"
+                        >Tôi đã có Giấy Phép Lái Xe hợp lệ</label
+                      >
+                    </div>
+                    <div class="form-check mb-2">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="agreeInfo"
+                        name="agreeInfo"
+                      />
+                      <label class="form-check-label" for="agreeInfo">
+                        Tôi đồng ý nhận thêm thông tin về sản phẩm hoặc dịch vụ.
+                      </label>
+                    </div>
+
+                    <div class="form-check mb-4">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="policy"
+                        name="policy"
+                        required
+                      />
+                      <label class="form-check-label" for="policy">
+                        Tôi đồng ý với <a href="#">quy định và chính sách</a> của Honda Việt Nam.
+                      </label>
+                    </div>
+
+                    <div class="d-grid">
+                      <button type="submit" class="btn btn-danger btn-lg">ĐĂNG KÝ LÁI THỬ</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <app-dangkylaithu [product]="product"></app-dangkylaithu>
+        <!-- Thông số -->
+        <div class="row border-top border-bottom py-4">
+          <div class="col-4 border-end-custom">
+            <p class="mb-1">Số chỗ ngồi</p>
+            <h5 class="fw-bold">{{ product.so_cho_ngoi }} chỗ</h5>
+          </div>
+          <div class="col-4 border-end-custom">
+            <p class="mb-1">Kiểu dáng</p>
+            <h5 class="fw-bold">{{ product.kieu_dang }}</h5>
+          </div>
+          <div class="col-4">
+            <p class="mb-1">Nhiên liệu</p>
+            <h5 class="fw-bold">{{ product.nhien_lieu }}</h5>
+          </div>
+        </div>
+
+        <div class="row border-bottom py-4">
+          <div class="col-6 border-end-custom">
+            <p class="mb-1">Xuất xứ</p>
+            <h5 class="fw-bold">{{ product.xuat_xu }}</h5>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Giá từ</p>
+            <h5 class="fw-bold">
+              {{ product.price | number }} <small class="fw-normal">VNĐ</small>
+            </h5>
+          </div>
+        </div>
+        <button class="btn btn-warning mt-4" (click)="addToCart(product)">Thêm giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="!product" class="text-center py-5 text-muted">
+  <p>Đang tải chi tiết sản phẩm...</p>
+</div>
+<!-- Ngoại thất -->
+<section class="container-md pt-5">
+  <hr />
+  <h1>Ngoại thất</h1>
+  <p>Các tính năng có thể khác nhau giữa các phiên bản</p>
+  <div class="p-5">
+    <div class="row py-3">
+      <!-- Cột ảnh -->
+      <div class="col-12 col-md-7">
+        <img
+          src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/v1mABLQxexhO8PDAoIvV.png"
+          alt=""
+          class="w-100"
+        />
+      </div>
+      <!-- Cột text -->
+      <div class="col-12 col-md-5 d-flex flex-column justify-content-center">
+        <div class="p-2">
+          <h3>Đầu Xe</h3>
+          <p>
+            Thiết kế lưới tản nhiệt cỡ lớn với họa tiết lục giác tạo nên vẻ bề thế và mạnh mẽ, hốc
+            gió lớn thể thao giúp tăng tính khí động học.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          class="w-100"
+          src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/cSOqXuFw4uuHL8Sg5m3k.png"
+          alt=""
+        />
+        <div class="p-2">
+          <h3>Cụm đèn trước</h3>
+          <p>
+            Cụm đèn pha LED sắc nét và hiện đại cùng dàn đèn LED ban ngày giúp xe nổi bật trong mọi
+            điều kiện ánh sáng.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <img
+          class="w-100"
+          src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/YQSsNSihU1MepTCmJHEn.png"
+          alt=""
+        />
+        <div class="p-2">
+          <h3>Đuôi xe</h3>
+          <p>
+            Đèn hậu LED với thiết kế đặc trưng, tăng khả năng nhận diện và tạo điểm nhấn nổi bật cho
+            phần đuôi xe.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Nội Thất -->
+<div style="background: #000">
+  <section class="container-md text-white pt-5">
+    <h1>Nội thất</h1>
+    <p>Các tính năng có thể khác nhau giữa các phiên bản</p>
+
+    <div class="p-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            class="w-100"
+            src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/GuP7MilZTcXLMRiR8tKt.png"
+            alt=""
+          />
+          <div class="p-2">
+            <h3>Đồng hồ</h3>
+            <p>
+              Bảng đồng hồ trung tâm điện tử 10.2 inch (RS, e:HEV RS) hiển thị sắc nét, cung cấp
+              thông tin rõ ràng. Bảng đồng hồ có thể tùy chọn hiển thị thông tin bài nhạc, tình
+              trạng cửa, thông số hành trình, ... qua nút bấm trên vô lăng, đảm bảo sự tiện lợi mà
+              vẫn giữ được sự tập trung tối đa khi cầm lái.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            class="w-100"
+            src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/uMj95W0Ujb45FPbsNVd9.png"
+            alt=""
+          />
+          <div class="p-2">
+            <h3>Vô lăng</h3>
+            <p>
+              Vô lăng tích hợp nút điều khiển đa thông tin, âm thanh, ra lệnh bằng giọng nói (RS,
+              e:HEV RS) và đàm thoại rảnh tay.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            class="w-100"
+            src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/9EsGvng0a4oCp2ORouGn.png"
+            alt=""
+          />
+          <div class="p-2">
+            <h3>Màn hình</h3>
+            <p>
+              Màn hình cảm ứng 9 inch hỗ trợ kết nối không dây điện thoại thông minh (RS, e:HEV RS)
+              giúp bạn dễ dàng nghe nhạc, nhắn tin, xem bản đồ, ... mang đến trải nghiệm giải trí
+              trọn vẹn.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img
+            class="w-100"
+            src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/xH9sr3Z8GTAicwdIflpX.png"
+            alt=""
+          />
+          <div class="p-2">
+            <h3>Điều hòa</h3>
+            <p>
+              Hệ thống điều hòa 2 vùng tự động (RS, e:HEV RS) giúp duy trì nhiệt độ lý tưởng cho cả
+              hàng ghế trước và sau.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            class="w-100"
+            src="https://cdn.honda.com.vn/automobile-strong-point-detail/October2024/rd6fOt024kN6fARLfboU.png"
+            alt=""
+          />
+          <div class="p-2">
+            <h3>Loa</h3>
+            <p>
+              Hệ thống 12 loa BOSE cao cấp (RS, e:HEV RS) cho chất lượng âm thanh đa chiều sống động
+              và chân thực, để mỗi chuyến hành trình thêm phần thi vị.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,36 @@
+/* Typography */
+body, ul, li, p, a, label, input, div {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+.h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px !important;
+  font-weight: 200 !important;
+}
+.h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px !important;
+  font-weight: 300;
+}
+.h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px !important;
+}
+/* Footer */
+#tempaltemo_footer a { color: #dcdde1;}
+#tempaltemo_footer a:hover { color: #68bb7d;}
+#tempaltemo_footer .border-light { border-color: #2d343f !important;}
+.bg-dark {
+  background-color: #212934 !important;
+}
+.logo {
+    font-weight: 500 !important;
+}
+.text-success {
+    color: #59ab6e !important;
+}
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}

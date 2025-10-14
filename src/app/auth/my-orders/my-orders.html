@@ -1,0 +1,90 @@
+<div class="container my-5">
+    <h2 class="mb-4">Lịch sử Đơn hàng của tôi 🛒</h2>
+
+    <div *ngIf="isLoading" class="text-center p-5">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Đang tải đơn hàng...</p>
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <div *ngIf="!isLoading && !error && myOrders.length === 0" class="alert alert-info p-4">
+        Bạn chưa có đơn hàng nào. Hãy bắt đầu mua sắm!
+    </div>
+
+    <div *ngIf="!isLoading && myOrders.length > 0" class="table-responsive shadow-sm rounded">
+        <table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr class="table-primary">
+                    <th>Mã Đơn</th>
+                    <th>Ngày đặt</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of myOrders">
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.order_date | date:'mediumDate' }}</td>
+                    <td class="fw-bold">{{ order.total_amount | currency:'VND' }}</td>
+                    <td>
+                        <span class="badge fs-6" 
+                            [class.bg-warning]="order.status === 'pending'"
+                            [class.bg-success]="order.status === 'confirmed' || order.status === 'completed'"
+                            [class.bg-danger]="order.status === 'cancelled' || order.status === 'returned'">
+                            {{ getStatusLabel(order.status) }}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-primary" (click)="viewOrderDetails(order)">Xem chi tiết</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="selectedOrder" class="modal-backdrop">
+        <div class="modal-content-lg">
+            <h4 class="modal-title mb-3">Chi tiết Đơn hàng #{{ selectedOrder.id }}</h4>
+            <div class="p-3 border rounded mb-4 bg-light">
+                <p><strong>Ngày đặt:</strong> {{ selectedOrder.order_date | date:'short' }}</p>
+                <p><strong>Tổng tiền:</strong> <span class="text-danger fw-bold">{{ selectedOrder.total_amount | currency:'VND' }}</span></p>
+                <p><strong>Trạng thái:</strong> 
+                    <span class="badge fs-6" 
+                        [class.bg-warning]="selectedOrder.status === 'pending'"
+                        [class.bg-success]="selectedOrder.status === 'confirmed' || selectedOrder.status === 'completed'"
+                        [class.bg-danger]="selectedOrder.status === 'cancelled' || selectedOrder.status === 'returned'">
+                        {{ getStatusLabel(selectedOrder.status) | uppercase }}
+                    </span>
+                </p>
+            </div>
+
+            <h5 class="mt-4">Sản phẩm</h5>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table-light">
+                            <th>Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of selectedOrder.details">
+                            <td><img [src]="item.image_url" width="50" height="50" style="object-fit: cover;"></td>
+                            <td>{{ item.product_name }}</td>
+                            <td>{{ item.price_at_order | currency:'VND' }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td class="fw-bold">{{ (item.price_at_order * item.quantity) | currency:'VND' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="btn btn-secondary mt-4 w-100" (click)="closeOrderDetails()">Đóng</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+body {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+#E-Warranty {
+  background-image: url(/image/warranty.png);
+  height: auto;
+}
+#MyVehicle {
+  background-image: url(/image/xe-cua-toi.png);
+  background-repeat: repeat;
+  height: auto;
+}
+#FindDealer{
+  background-image: url(/image/tim-dai-ly-desktop.png);
+}
+#SH-Connected {
+  height: auto;
+}
+.text-justify {
+  text-align: justify;
+}
+#image0,
+#image1 {
+  width: 580px;
+  height: 560px;
+}
+@media (max-width: 768px) {
+  #E-Warranty,
+  #MyVehicle,
+  #SH-Connected {
+    height: auto;
+  }
+  #image0 {
+    width: 413px;
+    height: auto;
+    margin-top: 70px;
+    transform: translateX(30%);
+  }
+  #image1 {
+    width: 413px;
+    height: auto;
+    margin-top: 70px;
+    transform: translateX(15%);
+  }
+}
+@media (max-width: 576px) {
+  #image1 {
+    width: 413px;
+    height: auto;
+    margin-top: 70px;
+    transform: translateX(-30%);
+  }
+}

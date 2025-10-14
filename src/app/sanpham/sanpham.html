@@ -1,0 +1,105 @@
+<div class="toanbotrangweb container-fluid px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-3 mt-5">
+  <div class="filters mb-3 p-2 border rounded bg-light">
+    <div class="row g-2 align-items-center">
+      <div class="col-md-3">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchProduct"
+          placeholder="Tìm theo tên xe..."
+          (input)="applyProductsFilter()"
+        />
+      </div>
+
+      <div class="col-md-2">
+        <select
+          class="form-select"
+          [(ngModel)]="filterCategory"
+          (change)="applyProductsFilter()"
+        >
+          <option value="">-- Loại xe --</option>
+          <option value="SUV">SUV</option>
+          <option value="Sedan">Sedan</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="MPV">MPV</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select" [(ngModel)]="filterSeats" (change)="applyProductsFilter()">
+          <option value="">-- Số chỗ ngồi --</option>
+          <option value="4">4 chỗ</option>
+          <option value="5">5 chỗ</option>
+          <option value="7">7 chỗ</option>
+          <option value="9">9 chỗ</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select" [(ngModel)]="filterOrigin" (change)="applyProductsFilter()">
+          <option value="">-- Xuất xứ --</option>
+          <option value="Việt Nam">Việt Nam</option>
+          <option value="Thái Lan">Thái Lan</option>
+          <option value="Nhật Bản">Nhật Bản</option>
+          <option value="Hàn Quốc">Hàn Quốc</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select" [(ngModel)]="filterPrice" (change)="applyProductsFilter()">
+          <option value="">-- Giá tiền --</option>
+          <option value="duoi500">Dưới 500 triệu</option>
+          <option value="500to800">500 - 800 triệu</option>
+          <option value="800to1b">800 triệu - 1 tỷ</option>
+          <option value="tren1b">Trên 1 tỷ</option>
+        </select>
+      </div>
+
+      <div class="col-md-1">
+        <button class="btn btn-secondary w-100" (click)="resetProductsFilter()">Đặt lại</button>
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 p-lg-5">
+    <div class="col" *ngFor="let car of filteredProducts">
+      <div class="sanpham mb-5" id="first">
+        <div class="img-wrap">
+          <img class="main" [src]="getImageUrl(car.image_file)" [alt]="car.ten_xe" />
+
+          <img
+            class="hover"
+            [src]="getImageUrl(car.img_hover_file)"
+            [alt]="car.ten_xe + ' hover'"
+          />
+        </div>
+        <div class="content">
+          <div class="text-center">
+            <h3 class="pb-3">{{ car.ten_xe | uppercase }}</h3>
+            <p>
+              Giá từ
+              <span class="fw-bolder">{{car.gia | number }}</span>
+              <span class="sup-small">VNĐ</span>
+            </p>
+          </div>
+          <div class="fw-bold">
+            <div class="d-flex justify-content-evenly">
+              <p>- {{ car.so_cho_ngoi }} chỗ</p>
+              <p>- {{ car.kieu_dang }}</p>
+              <p>- {{ car.loai_xe }}</p>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <p>- {{ car.xuat_xu }}</p>
+              <p>- {{ car.nhien_lieu }}</p>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <p>- {{ car.mo_ta_chi_tiet }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-3 d-flex justify-content-evenly">
+          <button class="btn btn-danger" [routerLink]="['/chitietsanpham', car.id]">Xem chi tiết</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

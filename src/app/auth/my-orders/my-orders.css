@@ -1,0 +1,25 @@
+/* 1. Đảm bảo modal-backdrop chiếm toàn màn hình */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Chiều rộng toàn bộ viewport */
+    height: 100vh; /* Chiều cao toàn bộ viewport */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Cao hơn các thành phần khác */
+    overflow-y: auto; /* Cho phép cuộn dọc nếu modal quá dài */
+}
+
+/* 2. Đảm bảo modal-content-lg không bị cố định chiều rộng quá chặt */
+.modal-content-lg {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    max-width: 90%; /* Giới hạn chiều rộng trên mọi màn hình */
+    width: 900px; /* Chiều rộng tối đa trên màn hình lớn */
+    max-height: 90vh;
+    overflow-y: auto;
+}

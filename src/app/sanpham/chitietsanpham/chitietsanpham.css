@@ -1,0 +1,41 @@
+.thumb {
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  border: 2px solid transparent;
+}
+
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+.active-thumb {
+  border: 1px solid #dc3545; /* Đỏ Honda */
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+.border-end-custom {
+  border-right: 1px solid #ddd;
+}
+
+.text-red {
+  color: #d00 !important;
+}
+
+.red {
+  color: red;
+}
+
+.link-red {
+  color: #d00;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* margin-right: 1.5rem; */
+}
+
+.link-red:hover {
+  text-decoration: underline;
+}
+
+button.carousel-control-prev {
+  width: 5%;
+}

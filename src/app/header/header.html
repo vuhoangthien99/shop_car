@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+    <link rel="stylesheet" href="header.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap"
+    />
+  </head>
+  <body>
+    <div class="fixed-top">
+      <!-- Start Top Nav -->
+      <nav
+        class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block"
+        id="templatemo_nav_top"
+      >
+        <div class="container text-light">
+          <div class="w-100 d-flex justify-content-between">
+            <div>
+              <i class="fa fa-envelope mx-2"></i>
+              <a
+                class="navbar-sm-brand text-light text-decoration-none"
+                href="mailto:info@company.com"
+                >info@company.com</a
+              >
+              <i class="fa fa-phone mx-2"></i>
+              <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340"
+                >010-020-0340</a
+              >
+            </div>
+            <div>
+              <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"
+                ><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i
+              ></a>
+              <a class="text-light" href="https://www.instagram.com/" target="_blank"
+                ><i class="fab fa-instagram fa-sm fa-fw me-2"></i
+              ></a>
+              <a class="text-light" href="https://twitter.com/" target="_blank"
+                ><i class="fab fa-twitter fa-sm fa-fw me-2"></i
+              ></a>
+              <a class="text-light" href="https://www.linkedin.com/" target="_blank"
+                ><i class="fab fa-linkedin fa-sm fa-fw"></i
+              ></a>
+              <div class="user-menu" *ngIf="isLoggedIn">
+                <div class="user-name">
+                  Xin chào, {{ user?.name }}
+                  <i class="fa fa-caret-down"></i>
+                </div>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/my-orders">Đơn hàng</a></li>
+                  <li><a routerLink="/cart">Giỏ hàng</a></li>
+                  @if(user?.role === 'admin'){
+                  <li><a routerLink="/admin">Trang quản lý</a></li>
+                  }
+                  <li><a href="#" (click)="logout()">Đăng xuất</a></li>
+                </ul>
+              </div>
+              <div *ngIf="!isLoggedIn">
+                <!-- <a class="btn btn-info" routerLink="/login">Đăng nhập</a> -->
+                <button class="btn btn-info text-white" routerLink="/login">Đăng nhập</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Close Top Nav -->
+
+      <!-- Header -->
+      <nav class="navbar navbar-expand-lg navbar-light shadow bg-white">
+        <div class="container d-flex justify-content-between align-items-center">
+          <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            Double T
+          </a>
+
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between"
+            id="templatemo_main_nav"
+          >
+            <div class="flex-fill">
+              <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    routerLink="/"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    href="../trangchu/trangchu.html"
+                  >
+                    Trang chủ
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    routerLink="/about"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    class="nav-link"
+                    href="../gioithieu/gioithieu.html"
+                    >Về chúng tôi</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    routerLink="/shop"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    class="nav-link"
+                    href="../sanpham/sanpham.html"
+                    >Sản phẩm</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    routerLink="/contact"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    class="nav-link"
+                    href="../lienhe/lienhe.html"
+                    >Liên hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+              <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputMobileSearch"
+                    placeholder="Search ..."
+                  />
+                  <div class="input-group-text">
+                    <i class="fa fa-fw fa-search"></i>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                class="nav-icon position-relative text-decoration-none"
+                href="javascript:void(0)"
+                (click)="goToCart()"
+              >
+                <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                <span
+                  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                >
+                  {{ isLoggedIn ? cartItemCount : 0 }}
+                </span>
+              </a>
+              <a class="nav-icon position-relative text-decoration-none" href="#">
+                <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                <span
+                  class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"
+                  >+99</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Close Header -->
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade bg-white"
+      id="templatemo_search"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+          <div class="input-group mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="inputModalSearch"
+              name="q"
+              placeholder="Search ..."
+            />
+            <button type="submit" class="input-group-text bg-success text-light">
+              <i class="fa fa-fw fa-search text-white"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide position-relative">
+      <!-- carousel items -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <picture>
+            <!-- Ảnh dọc cho mobile -->
+            <source srcset="image/d2DDLAgLZZsTxkDJBMGq.jpg" media="(max-width: 768px)" />
+            <!-- Ảnh ngang cho desktop -->
+            <img src="image/eCzDWGsaAsucv9o537pv.jpg" class="d-block w-100" alt="Slide 1" />
+          </picture>
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <!-- Ảnh dọc cho mobile -->
+            <source srcset="image/9WnQPsQraZnJpszLccHP.jpg" media="(max-width: 768px)" />
+            <!-- Ảnh ngang cho desktop -->
+            <img src="image/evsHHYpK5Y8k8CFR1yQw.jpg" class="d-block w-100" alt="Slide 2" />
+          </picture>
+        </div>
+        <div class="carousel-item">
+          <picture>
+            <!-- Ảnh dọc cho mobile -->
+            <source srcset="image/yAvlYqXnJZdughbO6iMy.png" media="(max-width: 768px)" />
+            <!-- Ảnh ngang cho desktop -->
+            <img src="image/SpUXuAFK8yUdbWs9TT1T.png" class="d-block w-100" alt="Slide 3" />
+          </picture>
+        </div>
+      </div>
+
+      <!-- indicators + prev/next ở cuối ảnh -->
+      <div
+        class="carousel-controls d-flex justify-content-center align-items-center gap-3 position-absolute w-100"
+      >
+        <!-- prev -->
+        <button
+          class="btn p-2"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+          style="width: 55px; height: 55px; border: 1px solid white; border-radius: 50%"
+        >
+          <span
+            class="carousel-control-prev-icon d-flex justify-content-center"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <!-- counter -->
+        <div id="carousel-counter" class="carousel-counter text-white">1 / 3</div>
+        <!-- next -->
+        <button
+          class="btn"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+          style="width: 55px; height: 55px; border: 1px solid white; border-radius: 50%"
+        >
+          <span
+            class="carousel-control-next-icon d-flex justify-content-center"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Nút Back to Top -->
+    @if (isShow) {
+    <button type="button" class="btn btn-danger btn-lg" id="btn-back-to-top" (click)="backToTop()">
+      <i class="bi bi-chevron-up fs-3"></i>
+    </button>
+    }
+  </body>
+</html>

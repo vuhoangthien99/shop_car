@@ -1,0 +1,81 @@
+/* CSS/SCSS Cải tiến */
+.admin-container {
+  max-width: 1400px; /* Giới hạn chiều rộng cho màn hình lớn */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-container h1 {
+  color: #007bff;
+  font-weight: 700;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Tab Navigation */
+.nav-link {
+  font-weight: 500;
+  color: #6c757d;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background-color: #007bff; /* Màu chủ đạo: Xanh dương */
+  border-color: #007bff;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay mờ */
+  z-index: 1040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-lg {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 800px; /* Độ rộng lớn hơn */
+  max-height: 90vh; /* Giới hạn chiều cao */
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+  position: relative;
+}
+
+.modal-title {
+  color: #007bff;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.status-pending {
+  background-color: #fff3cd;
+  color: #664d03;
+  font-weight: 600;
+}
+.status-approved {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  font-weight: 600;
+}
+.status-test_completed {
+  background-color: #dbeaff;
+  color: #052c65;
+  font-weight: 600;
+}
+.status-rejected {
+  background-color: #f8d7da;
+  color: #842029;
+  font-weight: 600;
+}

@@ -1,0 +1,77 @@
+<div #modal class="modal fade" id="modalSoSanh" tabindex="-1" aria-labelledby="modalSoSanhLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="modalSoSanhLabel">Đăng ký Lái thử</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container my-5">
+          <div class="text-center mb-4">
+            <h4 class="fw-bold">{{ product.name }}</h4>
+            <img [src]="product.image_url" [alt]="product.name" class="w-50 img-fluid rounded" />
+          </div>
+
+          <form #form="ngForm" (ngSubmit)="submitForm(form)" class="text-start">
+
+            <div class="mb-3">
+              <label for="fullname" class="form-label">Họ và tên *</label>
+              <input type="text" id="fullname" name="fullname" class="form-control" ngModel required />
+            </div>
+
+            <div class="mb-3">
+              <label for="phone" class="form-label">Số điện thoại *</label>
+              <input type="tel" id="phone" name="phone" class="form-control" ngModel pattern="[0-9]{10,11}" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="city" class="form-label">Tỉnh/Thành phố *</label>
+              <select id="city" name="city" class="form-select" ngModel required>
+                <option value="">Chọn</option>
+                <option>Hà Nội</option>
+                <option>TP. Hồ Chí Minh</option>
+                <option>Đà Nẵng</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="dealer" class="form-label">Đại lý *</label>
+              <select id="dealer" name="dealer" class="form-select" ngModel required>
+                <option value="">Chọn</option>
+                <option>Đại lý A</option>
+                <option>Đại lý B</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="date" class="form-label">Ngày dự kiến</label>
+              <input type="date" id="date" name="date" class="form-control" ngModel />
+            </div>
+
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="license" name="license" ngModel />
+              <label class="form-check-label" for="license">Tôi đã có Giấy Phép Lái Xe hợp lệ</label>
+            </div>
+
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" id="agreeInfo" name="agreeInfo" ngModel />
+              <label class="form-check-label" for="agreeInfo">Tôi đồng ý nhận thêm thông tin về sản phẩm hoặc dịch vụ.</label>
+            </div>
+
+            <div class="form-check mb-4">
+              <input type="checkbox" class="form-check-input" id="policy" name="policy" ngModel required />
+              <label class="form-check-label" for="policy">
+                Tôi đồng ý với <a href="#">quy định và chính sách</a> của Honda Việt Nam.
+              </label>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-danger btn-lg">ĐĂNG KÝ LÁI THỬ</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

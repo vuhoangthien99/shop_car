@@ -1,0 +1,21 @@
+<h3>Quản lý sản phẩm</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Danh mục</th>
+      <th>Giá</th>
+      <th>Kho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.category_id }}</td>
+      <td>{{ p.price | currency:'VND' }}</td>
+      <td>{{ p.stock }}</td>
+    </tr>
+  </tbody>
+</table>
