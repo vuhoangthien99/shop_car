@@ -45,9 +45,10 @@
   opacity: 1;
 }
 @media (max-width: 768px) {
-  .toanbosanpham {
-    padding: 0px;
+  .toanbotrangweb {
+    padding: 20px 0px 0px 0px !important;
   }
+  
   #first {
     margin-top: 100px;
   }

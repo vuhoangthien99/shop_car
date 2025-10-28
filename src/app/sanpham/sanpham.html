@@ -1,4 +1,5 @@
-<div class="toanbotrangweb container-fluid">
+<div class="container-fluid">
+<div class="toanbotrangweb">
   <!-- <div class="filters mb-3 p-2 border rounded bg-light">
     <div class="row g-2 align-items-center">
       <div class="col-md-3">
@@ -63,8 +64,15 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
       <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <!-- <img class="pe-2" src="/image/filter-icon.png" alt="" /> -->
         <span class="text-danger">Bộ lọc</span>
       </button>
@@ -72,7 +80,11 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item me-5">
             <label for="" class="text-uppercase fw-bold">Kiểu dáng</label>
-            <select class="form-select rounded-0" [(ngModel)]="filterCategory" (change)="applyProductsFilter()">
+            <select
+              class="form-select rounded-0"
+              [(ngModel)]="filterCategory"
+              (change)="applyProductsFilter()"
+            >
               <option value="">Tất cả</option>
               <option value="SUV">SUV</option>
               <option value="Sedan">Sedan</option>
@@ -82,7 +94,11 @@
           </li>
           <li class="nav-item dropdown">
             <label for="" class="text-uppercase fw-bold">Giá</label>
-            <select class="form-select rounded-0" [(ngModel)]="filterPrice" (change)="applyProductsFilter()">
+            <select
+              class="form-select rounded-0"
+              [(ngModel)]="filterPrice"
+              (change)="applyProductsFilter()"
+            >
               <option value="">Tất cả giá</option>
               <option value="low">Dưới 1 tỷ</option>
               <option value="mid">1 tỷ - 1 tỷ 2</option>
@@ -91,8 +107,14 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input type="text" class="form-control" [(ngModel)]="searchProduct" placeholder="Tìm theo tên xe..." name="username"
-          (input)="applyProductsFilter()" />
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="searchProduct"
+            placeholder="Tìm theo tên xe..."
+            name="username"
+            (input)="applyProductsFilter()"
+          />
         </form>
       </div>
     </div>
@@ -114,7 +136,7 @@
             <h3 class="pb-3">{{ car.ten_xe | uppercase }}</h3>
             <p>
               Giá từ
-              <span class="fw-bolder">{{car.gia | number }}</span>
+              <span class="fw-bolder">{{ car.gia | number }}</span>
               <span class="sup-small">VNĐ</span>
             </p>
           </div>
@@ -134,9 +156,12 @@
           </div>
         </div>
         <div class="text-center pt-3 d-flex justify-content-evenly">
-          <button class="btn btn-danger" [routerLink]="['/chitietsanpham', car.id]">Xem chi tiết</button>
+          <button class="btn btn-danger" [routerLink]="['/chitietsanpham', car.id]">
+            Xem chi tiết
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
