@@ -73,7 +73,7 @@
       <!-- Close Top Nav -->
 
       <!-- Header -->
-      <nav class="navbar navbar-expand-lg navbar-light shadow bg-white">
+      <nav id="navbarNav" class="navbar navbar-expand-lg navbar-light shadow bg-white">
         <div class="container d-flex justify-content-between align-items-center">
           <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
             Double T
@@ -103,7 +103,7 @@
                     routerLink="/"
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
-                    href="../trangchu/trangchu.html"
+                    (click)="closeNavbar()"
                   >
                     Trang chủ
                   </a>
@@ -114,7 +114,7 @@
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     class="nav-link"
-                    href="../gioithieu/gioithieu.html"
+                    (click)="closeNavbar()"
                     >Về chúng tôi</a
                   >
                 </li>
@@ -124,7 +124,7 @@
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     class="nav-link"
-                    href="../sanpham/sanpham.html"
+                    (click)="closeNavbar()"
                     >Sản phẩm</a
                   >
                 </li>
@@ -134,7 +134,7 @@
                     routerLinkActive="active"
                     [routerLinkActiveOptions]="{ exact: true }"
                     class="nav-link"
-                    href="../lienhe/lienhe.html"
+                    (click)="closeNavbar()"
                     >Liên hệ</a
                   >
                 </li>
@@ -142,7 +142,7 @@
             </div>
             <div class="navbar align-self-center d-flex">
               <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                <div class="input-group">
+                <!-- <div class="input-group">
                   <input
                     type="text"
                     class="form-control"
@@ -152,6 +152,24 @@
                   <div class="input-group-text">
                     <i class="fa fa-fw fa-search"></i>
                   </div>
+                </div> -->
+                <div class="user-menu" *ngIf="isLoggedIn">
+                  <div class="user-name">
+                    Xin chào, {{ user?.name }}
+                    <i class="fa fa-caret-down"></i>
+                  </div>
+                  <ul class="dropdown-menu">
+                    <li><a routerLink="/my-orders">Đơn hàng</a></li>
+                    <li><a routerLink="/cart">Giỏ hàng</a></li>
+                    @if(user?.role === 'admin'){
+                    <li><a routerLink="/admin">Trang quản lý</a></li>
+                    }
+                    <li><a href="#" (click)="logout()">Đăng xuất</a></li>
+                  </ul>
+                </div>
+                <div *ngIf="!isLoggedIn">
+                  <!-- <a class="btn btn-info" routerLink="/login">Đăng nhập</a> -->
+                  <button class="btn btn-info text-white" routerLink="/login">Đăng nhập</button>
                 </div>
               </div>
 

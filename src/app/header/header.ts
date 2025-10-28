@@ -6,11 +6,11 @@ import {
   ChangeDetectorRef,
   OnInit,
 } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, RouterModule } from '@angular/router';
 import { AuthService, UserData } from '../auth/auth';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+declare var bootstrap: any;
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -29,7 +29,13 @@ export class Header implements OnInit, AfterViewInit {
     public authService: AuthService,
     private router: Router,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.closeNavbar();
+      }
+    });
+  }
 
   isShow = false;
   private topPosToStartShowing = 200;
@@ -93,5 +99,16 @@ export class Header implements OnInit, AfterViewInit {
     this.isLoggedIn = false;
     this.user = null;
     this.router.navigate(['/']);
+  }
+  closeNavbar() {
+    const navbar = document.getElementById('templatemo_main_nav');
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+
+    // Nếu menu đang mở thì đóng lại
+    if (navbar?.classList.contains('show')) {
+      navbar.classList.remove('show');
+      navbarToggler?.classList.add('collapsed');
+      navbarToggler?.setAttribute('aria-expanded', 'false');
+    }
   }
 }

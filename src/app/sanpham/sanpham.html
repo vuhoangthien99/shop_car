@@ -1,5 +1,5 @@
-<div class="toanbotrangweb container-fluid px-xxl-5 px-xl-5 px-lg-5 px-md-5 px-3 mt-5">
-  <div class="filters mb-3 p-2 border rounded bg-light">
+<div class="toanbotrangweb container-fluid">
+  <!-- <div class="filters mb-3 p-2 border rounded bg-light">
     <div class="row g-2 align-items-center">
       <div class="col-md-3">
         <input
@@ -59,7 +59,44 @@
         <button class="btn btn-secondary w-100" (click)="resetProductsFilter()">Đặt lại</button>
       </div>
     </div>
-  </div>
+  </div> -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <img class="pe-2" src="/image/filter-icon.png" alt="" /> -->
+        <span class="text-danger">Bộ lọc</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item me-5">
+            <label for="" class="text-uppercase fw-bold">Kiểu dáng</label>
+            <select class="form-select rounded-0" [(ngModel)]="filterCategory" (change)="applyProductsFilter()">
+              <option value="">Tất cả</option>
+              <option value="SUV">SUV</option>
+              <option value="Sedan">Sedan</option>
+              <option value="Hatchback">Hatchback</option>
+              <option value="MPV">MPV</option>
+            </select>
+          </li>
+          <li class="nav-item dropdown">
+            <label for="" class="text-uppercase fw-bold">Giá</label>
+            <select class="form-select rounded-0" [(ngModel)]="filterPrice" (change)="applyProductsFilter()">
+              <option value="">Tất cả giá</option>
+              <option value="low">Dưới 1 tỷ</option>
+              <option value="mid">1 tỷ - 1 tỷ 2</option>
+              <option value="high">Trên 1 tỷ 2</option>
+            </select>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input type="text" class="form-control" [(ngModel)]="searchProduct" placeholder="Tìm theo tên xe..." name="username"
+          (input)="applyProductsFilter()" />
+        </form>
+      </div>
+    </div>
+  </nav>
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 p-lg-5">
     <div class="col" *ngFor="let car of filteredProducts">
       <div class="sanpham mb-5" id="first">

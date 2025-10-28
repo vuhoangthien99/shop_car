@@ -1,10 +1,8 @@
-.toanbotrangweb{
-  background-color: #F5F5F5;
-  
+.toanbotrangweb {
+  padding: 50px 50px 50px 50px;
 }
-.container{
-  background-color: #F5F5F5;
-  
+.container-fluid {
+  background-color: #f5f5f5;
 }
 .sanpham {
   /* border: 1px solid #eee;
@@ -15,15 +13,15 @@
   position: relative;
   overflow: visible; /* cho xe trồi ra ngoài */
 }
-.sanpham:hover{
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+.sanpham:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 .img-wrap {
   position: absolute;
-  top: -60px;   /* nâng xe lên khỏi box */
+  top: -60px; /* nâng xe lên khỏi box */
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;   /* chỉnh kích thước xe */
+  width: 70%; /* chỉnh kích thước xe */
 }
 
 .img-wrap img {
@@ -34,7 +32,8 @@
 
 .img-wrap img.hover {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   opacity: 0;
 }
 
@@ -46,10 +45,10 @@
   opacity: 1;
 }
 @media (max-width: 768px) {
-  /* .sanpham {
-    margin-top: 50px;
-  } */
-   #first{
-    margin-top: 48px;
-   }
+  .toanbosanpham {
+    padding: 0px;
+  }
+  #first {
+    margin-top: 100px;
+  }
 }
